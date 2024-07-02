@@ -5,7 +5,7 @@ import { randomUUID } from "crypto";
 import { checkSessionExists } from "../middlewares/check-session-id-exists";
 
 export async function transactionsRoutes(app: FastifyInstance) {
-  app.get("/", { preHandler: [checkSessionExists] }, async (request, reply) => {
+  app.get("/", { preHandler: [checkSessionExists] }, async (request) => {
     const { sessionId } = request.cookies;
 
     const transactions = await knex("transactions")
@@ -43,8 +43,6 @@ export async function transactionsRoutes(app: FastifyInstance) {
   });
 
   app.post("/", async (request, reply) => {
-    request.body;
-
     const createTransactionBodySchema = z.object({
       title: z.string(),
       amount: z.number(),
