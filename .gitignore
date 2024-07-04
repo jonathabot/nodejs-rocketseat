@@ -1,5 +1,6 @@
 node_modules
-nivel2/db/*.db
+nivel2/db/app.db
+nivel2/db/app.db
 .env
 .env.test
 nivel2/build
